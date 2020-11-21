@@ -1,5 +1,5 @@
-import { KeyOf, ScaleType } from '../src/models/Note';
-import { getMajorPentatonicScale, getScale, getNoteSequence, getIntendedLetterOrder, getEnharmonicEquivalent } from "../src/scale-calculations";
+import { KeyOf } from '../src/models/Note';
+import { getNoteSequence, getIntendedLetterOrder, getEnharmonicEquivalent } from "../src/scale-calculations";
 
 describe('note calculation functions', () => {
   
@@ -22,15 +22,15 @@ describe('note calculation functions', () => {
     expect(notesFSharp).toHaveLength(12);
   });
 
-  it('should return expected scale letters', () => {
+  it('Should return expected scale letters', () => {
     const letters = getIntendedLetterOrder(KeyOf.CSharp);
     expect(letters).toStrictEqual(['C', 'D', 'E', 'F', 'G', 'A', 'B', 'C']);
     expect(letters).toHaveLength(8);
   });
 
-  it('should convert to enharmonic equivalent', () => {
-    const c = getEnharmonicEquivalent('B#');
-    expect(c).toBe('C');
+  it('Should convert to enharmonic equivalent', () => {
+    const note = getEnharmonicEquivalent('B#');
+    expect(note).toBe('C');
   });
   
 });
